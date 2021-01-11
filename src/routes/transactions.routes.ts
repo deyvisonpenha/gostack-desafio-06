@@ -8,7 +8,11 @@ import CreateTransactionService from '../services/CreateTransactionService';
 const transactionsRouter = Router();
 
 transactionsRouter.get('/', async (request, response) => {
-  // TODO
+  const transactionRepository = new TransactionsRepository();
+
+  const transactions = transactionRepository.find();
+
+  return response.json(transactions);
 });
 
 transactionsRouter.post('/', async (request, response) => {
