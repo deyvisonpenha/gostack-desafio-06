@@ -17,14 +17,14 @@ export default class CreateCategory1595242400125 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'create_at',
+            name: 'created_at',
             type: 'timestamp',
             default: 'now()',
           },
           {
-            name: 'update_at',
+            name: 'updated_at',
             type: 'timestamp',
-            default: 'uuid_generate_v4()',
+            default: 'now()',
           },
         ],
       }),

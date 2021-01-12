@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import { EntityRepository, Repository } from 'typeorm';
 
 import Transaction from '../models/Transaction';
@@ -22,11 +21,11 @@ class TransactionsRepository extends Repository<Transaction> {
       (accumulator, transaction) => {
         switch (transaction.type) {
           case 'income':
-            accumulator.income += transaction.value;
+            accumulator.income += Number(transaction.value);
             break;
 
           case 'outcome':
-            accumulator.outcome += transaction.value;
+            accumulator.outcome += Number(transaction.value);
             break;
 
           default:
@@ -35,9 +34,9 @@ class TransactionsRepository extends Repository<Transaction> {
         return accumulator;
       },
       {
-        income = 0,
-        outcome = 0,
-        total = 0,
+        income: 0,
+        outcome: 0,
+        total: 0,
       },
     );
 
